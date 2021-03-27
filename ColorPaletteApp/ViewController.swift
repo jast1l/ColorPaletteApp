@@ -29,20 +29,20 @@ class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.09868655354, green: 0.3001600206, blue: 0.6156072617, alpha: 1)
         colorView.layer.cornerRadius = 20
         
-        labelSettings()
+        labelsSettings()
         slidersSettings()
     }
 
     @IBAction func redSliderMove() {
         updateColorCount()
-        converColor()
+        convertColor()
     }
 }
 
 
 
 extension ViewController {
-    private func converColor() {
+    private func convertColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
@@ -80,7 +80,7 @@ extension ViewController {
         blueSlider.tintColor = .blue
     }
     
-    private func labelSettings() {
+    private func labelsSettings() {
         let labelColor = #colorLiteral(red: 0.7803899646, green: 0.8429759145, blue: 0.9137470722, alpha: 1)
         
         redCount.textColor = labelColor
