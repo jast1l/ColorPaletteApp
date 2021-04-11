@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		FAC77CD0260DFA0900CF2809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC77CCF260DFA0900CF2809 /* AppDelegate.swift */; };
 		FAC77CD2260DFA0900CF2809 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC77CD1260DFA0900CF2809 /* SceneDelegate.swift */; };
-		FAC77CD4260DFA0900CF2809 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC77CD3260DFA0900CF2809 /* ViewController.swift */; };
+		FAC77CD4260DFA0900CF2809 /* SetColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC77CD3260DFA0900CF2809 /* SetColorViewController.swift */; };
 		FAC77CD7260DFA0900CF2809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC77CD5260DFA0900CF2809 /* Main.storyboard */; };
 		FAC77CD9260DFA0C00CF2809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC77CD8260DFA0C00CF2809 /* Assets.xcassets */; };
 		FAC77CDC260DFA0C00CF2809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC77CDA260DFA0C00CF2809 /* LaunchScreen.storyboard */; };
+		FAE87D6F2621B7F4004A34E1 /* ShowColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE87D6E2621B7F3004A34E1 /* ShowColorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FAC77CCC260DFA0900CF2809 /* ColorPaletteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPaletteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC77CCF260DFA0900CF2809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC77CD1260DFA0900CF2809 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAC77CD3260DFA0900CF2809 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAC77CD3260DFA0900CF2809 /* SetColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetColorViewController.swift; sourceTree = "<group>"; };
 		FAC77CD6260DFA0900CF2809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC77CD8260DFA0C00CF2809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC77CDB260DFA0C00CF2809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC77CDD260DFA0C00CF2809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE87D6E2621B7F3004A34E1 /* ShowColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				FAC77CCF260DFA0900CF2809 /* AppDelegate.swift */,
 				FAC77CD1260DFA0900CF2809 /* SceneDelegate.swift */,
-				FAC77CD3260DFA0900CF2809 /* ViewController.swift */,
+				FAC77CD3260DFA0900CF2809 /* SetColorViewController.swift */,
+				FAE87D6E2621B7F3004A34E1 /* ShowColorViewController.swift */,
 				FAC77CD5260DFA0900CF2809 /* Main.storyboard */,
 				FAC77CD8260DFA0C00CF2809 /* Assets.xcassets */,
 				FAC77CDA260DFA0C00CF2809 /* LaunchScreen.storyboard */,
@@ -137,9 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC77CD4260DFA0900CF2809 /* ViewController.swift in Sources */,
+				FAC77CD4260DFA0900CF2809 /* SetColorViewController.swift in Sources */,
 				FAC77CD0260DFA0900CF2809 /* AppDelegate.swift in Sources */,
 				FAC77CD2260DFA0900CF2809 /* SceneDelegate.swift in Sources */,
+				FAE87D6F2621B7F4004A34E1 /* ShowColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
