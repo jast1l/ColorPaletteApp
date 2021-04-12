@@ -8,14 +8,11 @@
 import UIKit
 
 protocol SetColorViewContollerDelagate {
-    func setNewBackGroundValue(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat)
-    func checkGoBack(_ alertCount: Bool)
+    func setNewBackGroundValue(_ color: UIColor)
 }
 
 class ShowColorViewController: UIViewController {
     @IBOutlet weak var updateLabel: UIButton!
-    
-    var goBack = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +25,8 @@ class ShowColorViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let setColorVC = segue.destination as? SetColorViewController
-        setColorVC?.startViewColor = view.backgroundColor?.cgColor.components
+        setColorVC?.curentColor = view.backgroundColor
         setColorVC?.delegate = self
-        
-        if goBack {
-            setColorVC?.showAlertCount = true
-        }
     }
     
     @IBAction func updateButtonPressed() {
@@ -52,12 +45,8 @@ extension ShowColorViewController{
 }
 
 extension ShowColorViewController: SetColorViewContollerDelagate {
-    func setNewBackGroundValue(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) {
-        view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+    func setNewBackGroundValue(_ color: UIColor) {
+        view.backgroundColor = color
         updateLabel.tintColor = view.backgroundColor
-    }
-    
-    func checkGoBack(_ alertCount: Bool) {
-        self.goBack = alertCount
     }
 }

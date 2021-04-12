@@ -28,9 +28,8 @@ class SetColorViewController: UIViewController {
     @IBOutlet weak var blueTextField: UITextField!
     
     var delegate: SetColorViewContollerDelagate!
-    var startViewColor: [CGFloat]!
-    var showAlertCount = false
-    var currentFocusTextFieldValue = ""
+    var curentColor: UIColor!
+    var curentTextFiledValue = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +48,7 @@ class SetColorViewController: UIViewController {
     }
     
     @IBAction func doneButtonePressed() {
-        delegate.setNewBackGroundValue(CGFloat(redSlider.value),
-                                       CGFloat(greenSlider.value),
-                                       CGFloat(blueSlider.value))
-        delegate.checkGoBack(showAlertCount)
+        delegate.setNewBackGroundValue(colorView.backgroundColor ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         dismiss(animated: true)
     }
     
@@ -91,42 +87,28 @@ extension SetColorViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if !showAlertCount {
-            showAlert(title: "Attention", message: "Since the value cannot exceed 1.00, you can enter any number from 1 to 100 and it will be processed according to the conditions")
-            showAlertCount = true
-        } else {
-            currentFocusTextFieldValue = textField.text ?? ""
-            textField.text = ""
-        }
+        guard let text = textField.text else { return }
+        curentTextFiledValue = text
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text != "" {
-            guard let numberForSlider = Int(textField.text ?? "") else { return }
-            var stringSliderValue = ""
-            
-            if 1...99 ~= numberForSlider {
-                stringSliderValue = "0.\(numberForSlider)"
-            } else {
-                showAlert(title: "Attention", message: "The number \(numberForSlider) is not in the range from 1 to 100. Current value returned \(currentFocusTextFieldValue)")
-                stringSliderValue = currentFocusTextFieldValue
-            }
-            
-            
-            if textField == redTextField {
-                redSlider.value = Float(stringSliderValue) ?? 0
-            } else if textField == greenTextField {
-                greenSlider.value = Float(stringSliderValue) ?? 0
-            } else {
-                blueSlider.value = Float(stringSliderValue) ?? 0
-            }
-            
-            updateTextCount()
-            convertColor()
-        } else {
-            textField.text = String(currentFocusTextFieldValue)
+        guard let text = Float(textField.text ?? "1.0"),
+              text != Float("") else {
+            textField.text = curentTextFiledValue
+            return
         }
         
+        switch textField {
+        case redTextField :
+            redSlider.value = text
+        case greenTextField :
+            greenSlider.value = text
+        default:
+            blueSlider.value = text
+        }
+        
+        updateTextCount()
+        convertColor()
     }
 }
 
@@ -157,22 +139,22 @@ extension SetColorViewController {
         greenTextField.delegate = self
         blueTextField.delegate = self
         
+        colorView.backgroundColor = curentColor
         colorView.layer.cornerRadius = 20
         
-        colorView.backgroundColor = UIColor(red: CGFloat(startViewColor[0]),
-                                            green:CGFloat(startViewColor[1]),
-                                            blue: CGFloat(startViewColor[2]),
-                                            alpha: 1)
+        
     }
     
     private func slidersSettings() {
-        redSlider.value = Float(startViewColor[0])
+        let ciColor = CIColor(color: colorView.backgroundColor!)
+        
+        redSlider.value = Float(ciColor.red)
         redSlider.tintColor = .red
         
-        greenSlider.value = Float(startViewColor[1])
+        greenSlider.value = Float(ciColor.green)
         greenSlider.tintColor = .green
         
-        blueSlider.value = Float(startViewColor[2])
+        blueSlider.value = Float(ciColor.blue)
         blueSlider.tintColor = .blue
     }
     
@@ -188,17 +170,6 @@ extension SetColorViewController {
         blueLabel.textColor = labelColor
     }
 }
-
-extension SetColorViewController {
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(okButton)
-        
-        present(alert, animated: true)
-    }
-}
-
 
 
 
