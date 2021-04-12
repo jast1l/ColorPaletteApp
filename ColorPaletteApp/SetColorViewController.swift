@@ -68,8 +68,7 @@ extension SetColorViewController: UITextFieldDelegate {
         keyboardToolBar.sizeToFit()
         var items = [UIBarButtonItem]()
         
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem:
-                                                UIBarButtonItem.SystemItem.flexibleSpace,
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                             target: nil,
                                             action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem:
